@@ -79,6 +79,11 @@ describe LookupBy::Association do
       subject.city = "Chicago"
       expect(subject.city).to be_nil
     end
+
+    it "handles nil associations in form helpers" do
+      subject.city = nil
+      expect(subject.city_before_type_cast).to be_nil
+    end
   end
 
   context "Address.lookup_for :state, symbolize: true" do

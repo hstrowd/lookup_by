@@ -113,7 +113,8 @@ module LookupBy
           end
 
           def #{field}_before_type_cast
-            #{lookup_object}.#{lookup_field}_before_type_cast
+            value = #{lookup_object}
+            value ? value.#{lookup_field}_before_type_cast : nil
           end
 
           def #{field}=(arg)
